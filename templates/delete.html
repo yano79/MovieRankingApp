@@ -1,0 +1,21 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+<div class="container">
+    <p>The movie "{{ title }}" has been deleted</p>
+  <p>
+    <a href="{{ url_for('home') }}" class="button" >Home</a>
+  </p>
+
+</div>
+{% endblock %}
