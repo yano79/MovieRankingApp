@@ -2,7 +2,6 @@ altgraph==0.17.3
 anaconda-client==1.11.1
 anaconda-navigator==2.4.0
 appdirs==1.4.4
-Flask @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_4eo947bliu/croot/flask_1671217361971/work
 Flask-Bootstrap4==4.0.2
 Flask-SQLAlchemy==3.0.3
 fonttools==4.25.0
@@ -13,3 +12,4 @@ jinja2-time @ file:///opt/conda/conda-bld/jinja2-time_1649251842261/work
 requests @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_516b78ce-034d-4395-b9b5-1d78c2847384qtnol99l/croots/recipe/requests_1657734628886/work
 SQLAlchemy @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_47054e44-1f88-4a8b-9ca4-67b36ce38181xyx8z2m5/croots/recipe/sqlalchemy_1657867866169/work
 Werkzeug @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_322nlonnpf/croot/werkzeug_1671215993374/work
+
