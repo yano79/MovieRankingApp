@@ -2,7 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from sqlalchemy import URL
-from models import Movie, db, Form, Entry, Select
+from models import Movie, db, Form, Select
 import requests
 
 app = Flask(__name__)
