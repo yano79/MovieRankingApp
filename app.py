@@ -7,10 +7,15 @@ import requests
 
 app = Flask(__name__)
 
+# HOST=aws.connect.psdb.cloud
+# USERNAME=1eadhxwh6bc4jds0lm42
+# PASSWORD=pscale_pw_WOctYSAds3YjK2My8dDlxH92YFai5yhyKZ2K4XsywiL
+# DATABASE=yano_db
+
 url_object = URL.create(
     "mysql+pymysql",
-    username="5k7tjonchg9e2nd5466z",
-    password="pscale_pw_tyChz5LHwwXBQtT0KRLxLfLqmQRqiTCf146jeHiMCnf",
+    username="1eadhxwh6bc4jds0lm42",
+    password="pscale_pw_WOctYSAds3YjK2My8dDlxH92YFai5yhyKZ2K4XsywiL",
     host="aws.connect.psdb.cloud",
     database="yano_db",
     port=3306,

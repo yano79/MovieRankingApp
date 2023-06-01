@@ -18,13 +18,13 @@
 {% if movies: %}
    {% for movie in movies: %}
 
-  <div class="card" style="height: fit-content(100%)">
+  <div class="card" style="height: fit-content ;border: #333333; border-style: solid;border-width: 1px; ;background-color: antiquewhite;">
 
-    <div class="front" style="background-image: url('{{movie.img_url}}'); height: 110%">
+    <div class="front" style="background-image: url('{{movie.img_url}}'); height: 100%">
 
             <p class="large">{{ movies.index(movie)+1 }}</p>
     </div>
-    <div class="back" style="height: 110%">
+    <div class="back" style="background-color: burlywood; height: 100%">
       <div>
     <div class="title">{{ movie.title }} <span class="release_date">{{ movie.year }}</span></div>
         <div class="rating">
