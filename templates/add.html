@@ -5,19 +5,31 @@
   {{ super() }}
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
+
 {% block title %}Add Movie{% endblock %}
-
 {% block content %}
+<div class="container">
+    <h1 class="heading">Add a Movie </h1>
+<p>
+    <a href="{{ url_for('home') }}" class="button" >Home</a>
+  </p>
+    <hr style="border: 1px solid black"><br><br>
+{% if response %}
+{% for movie in response["results"]     %}
+    <strong><a href="{{ url_for('select', id=movie.id) }}"><p>{{movie["original_title"]}}</p></a></strong>
 
+    <img src="https://image.tmdb.org/t/p/w154{{ movie["poster_path"] }}" alt="">
 
-<div class="content">
-    <h1 class="heading">Add a Movie</h1>
-{{ wtf.quick_form(select_form, novalidate=True) }}<br><br>
-{{ wtf.quick_form(add_new, novalidate=True) }}
-
-
+    <p><strong>Original Language : {{ movie["original_language"] }}</strong></p>
+    <p><strong>Average rating : {{ movie["vote_average"] }}</strong></p>
+    <p><strong>Release date : {{ movie["release_date"] }}</strong></p>
+    <hr style="border: 1px solid black">
+{% endfor %}
+{% else %}
+{{ wtf.quick_form(select_form, novalidate=True) }}
+{% endif %}
 </div>
 {% endblock %}

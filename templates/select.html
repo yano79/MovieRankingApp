@@ -9,17 +9,17 @@
 {% endblock %}
 
 {% block title %}Select Movie{% endblock %}
-
-{% block content %}
-<div class="container">
+<p>
+    <a href="{{ url_for('home') }}" class="button" >Home</a>{% block content %}
+  </p> <div class="container">
     <h1 class="heading">Select Movie</h1>
 {% if response %}
 {% for movie in response["results"]     %}
     <a href="{{ url_for('add') }}"><p>{{movie["original_title"]}}</p></a>
 
     <img src="https://image.tmdb.org/t/p/w154{{ movie["poster_path"] }}" alt="">
-    <p>{{ movie["release_date"] }}</p>
-    <p>{{ movie["original_language"] }}</p>
+
+     <p>{{ movie["original_language"] }}</p>
     <p>{{ movie["vote_average"] }}</p>
   <p>{{ movie["release_date"] }}</p>
 {% endfor %}

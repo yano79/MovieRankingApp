@@ -7,12 +7,13 @@
 	 font-weight: 300;
 	 color: #333;
 	 font-family: "Nunito Sans", sans-serif;
+	 background-color: bisque;
 }
  body {
 	 margin: 0;
 	 padding: 0;
 	 height: 100vh;
-	 background-color: #ecf0f9;
+	 background-color: bisque;
 	 background-attachment: fixed;
 }
 .large {

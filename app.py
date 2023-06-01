@@ -18,7 +18,7 @@ url_object = URL.create(
 )
 
 API_KEY = '2edabd3ac514a4ff174adf7c3b213d57'
-
+MOVIE_DB_INFO_URL = "https://api.themoviedb.org/3/movie"
 
 
 
@@ -29,7 +29,6 @@ headers = {
     "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZWRhYmQzYWM1MTRhNGZmMTc0YWRmN2MzYjIxM2Q1NyIsInN1YiI6IjY0NzY3NzMyODlkOTdmMDBiZWM0OGViOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ViECdHOmEWcgYB3LXIRqsW8DyZRZu5bIM5vl7qXzM_c"
   }
 
-# query = input("Type a movie title keyword :")
 
 
 
@@ -93,33 +92,48 @@ def delete():
 
 @app.route('/add', methods=["GET", "POST"])
 def add():
-    new_search = Select()
-    new_entry = Entry()
-    if new_entry.validate_on_submit():
-        new_add = Movie(
-            title=new_entry.title.data,
-            year=new_entry.year.data,
-            description=new_entry.description.data,
-            rating=new_entry.rating.data,
-            review=new_entry.review.data,
-            img_url=new_entry.img_url.data
-        )
-        db.session.add(new_add)
-        db.session.commit()
-        return redirect(url_for('home'))
-    return render_template('add.html', add_new=new_entry, select_form=new_search)
 
-
-@app.route('/select', methods=["GET", "POST"])
-def select():
+    # new_entry = Entry()
+    # if new_entry.validate_on_submit():
+    #     new_add = Movie(
+    #         title=new_entry.title.data,
+    #         year=new_entry.year.data,
+    #         description=new_entry.description.data,
+    #         rating=new_entry.rating.data,
+    #         review=new_entry.review.data,
+    #         img_url=new_entry.img_url.data
+    #     )
     new_search = Select()
     if new_search.validate_on_submit():
         query = new_search.Keyword.data
         url = f"https://api.themoviedb.org/3/search/movie?query={query}&include_adult=false&language=en-US&page=1&region=USA%20"
         response = requests.get(url, headers=headers).json()
-        return render_template('select.html', response=response, select_form=new_search)
+        return render_template('add.html', response=response, select_form=new_search)
     return render_template('select.html', select_form=new_search)
-# img ="https://image.tmdb.org/t/p/w154"
+    #     db.session.add(new_add)
+    #     db.session.commit()
+    #     return redirect(url_for('home'))
+    # return render_template('add.html', add_new=new_entry, select_form=new_search)
+
+
+@app.route('/select', methods=["GET", "POST"])
+def select():
+    movie_api_id = request.args.get("id")
+    movie_api_url = f"{MOVIE_DB_INFO_URL}/{movie_api_id}"
+    if movie_api_id:
+        response = requests.get(movie_api_url, params={'api_key': API_KEY, 'language': 'en-US'})
+        data = response.json()
+        new_add = Movie(
+                title=data["title"],
+                year=data["release_date"].split("-")[0],
+                description=data["overview"],
+                rating=data["vote_average"],
+                review=" ",
+                img_url=f"https://image.tmdb.org/t/p/original{data['poster_path']}"
+            )
+        db.session.add(new_add)
+        db.session.commit()
+        return redirect(url_for('edit', id=new_add.id))
 
 if __name__ == '__main__':
     app.run(debug=True)

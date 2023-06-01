@@ -18,13 +18,13 @@
 {% if movies: %}
    {% for movie in movies: %}
 
-  <div class="card" >
+  <div class="card" style="height: fit-content(100%)">
 
-    <div class="front" style="background-image: url('{{movie.img_url}}');">
+    <div class="front" style="background-image: url('{{movie.img_url}}'); height: 110%">
 
             <p class="large">{{ movies.index(movie)+1 }}</p>
     </div>
-    <div class="back">
+    <div class="back" style="height: 110%">
       <div>
     <div class="title">{{ movie.title }} <span class="release_date">{{ movie.year }}</span></div>
         <div class="rating">
@@ -42,7 +42,12 @@
       </div>
     </div>
   </div>
+       <br>
+       <br><hr style="border: 1px solid black; width:50%;
+    margin:0 auto;" ><br>
+
 {% endfor %}
+
 {% else: %}
 <p class="description">Your list of favorite movies is currently empty. Add your selection now!!</p>
 {% endif %}
@@ -51,4 +56,5 @@
 <a href="{{ url_for('add') }}" class="button">Add Movie</a>
 </div>
 {% endblock %}
+
 
