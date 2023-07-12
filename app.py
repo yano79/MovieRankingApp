@@ -14,8 +14,8 @@ app = Flask(__name__)
 
 url_object = URL.create(
     "mysql+pymysql",
-    username="1eadhxwh6bc4jds0lm42",
-    password="pscale_pw_WOctYSAds3YjK2My8dDlxH92YFai5yhyKZ2K4XsywiL",
+    username="5k7tjonchg9e2nd5466z",
+    password="pscale_pw_tyChz5LHwwXBQtT0KRLxLfLqmQRqiTCf146jeHiMCnf",
     host="aws.connect.psdb.cloud",
     database="yano_db",
     port=3306,
