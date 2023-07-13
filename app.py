@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from sqlalchemy import URL
 from models import Movie, db, Form, Select
 import requests
-from config import MY_PWD
+import os
 
 app = Flask(__name__)
 
@@ -15,8 +15,8 @@ app = Flask(__name__)
 
 url_object = URL.create(
     "mysql+pymysql",
-    username="7jn28eup5a28orvdegc5",
-    password=MY_PWD,
+    username=os.environ.get('USER'),
+    password=os.environ.get('MY_PWD'),
     host="aws.connect.psdb.cloud",
     database="yano_db",
     port=3306,

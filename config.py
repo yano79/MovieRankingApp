@@ -1,2 +1,0 @@
-
-MY_PWD = "pscale_pw_TaamAgle7itzR9CT2mWX9wvQr8fU4sRlNeHaxL46uWJ"
