@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # HOST=aws.connect.psdb.cloud
 # USERNAME=1eadhxwh6bc4jds0lm42
-# PASSWORD=pscale_pw_WOctYSAds3YjK2My8dDlxH92YFai5yhyKZ2K4XsywiL
+# PASSWORD=pscale_pw_WOctYSAds3YjK2My8dDlxH92YFai5yhyKZ2K4X
 # DATABASE=yano_db
 
 url_object = URL.create(
