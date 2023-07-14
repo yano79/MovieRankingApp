@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap
 from sqlalchemy import URL
 from models import *
 import requests
+import pymysql
 import os
 
 app = Flask(__name__)
