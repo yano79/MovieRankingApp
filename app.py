@@ -3,11 +3,17 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from sqlalchemy import URL
 from models import *
+import sys
+import logging
 import requests
-import pymysql
 import os
 
+
+
 app = Flask(__name__)
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 # HOST=aws.connect.psdb.cloud
 # USERNAME=1eadhxwh6bc4jds0lm42
